@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Navigate } from "react-router-dom";
 import Card from "../components/Card";
 
 const Photos = () => {
@@ -10,9 +8,7 @@ const Photos = () => {
   const [submited, setSubmited] = useState("");
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const navigate = useNavigate()
-
+  const [error] = useState(null);
   const deletePhoto = (id) => {
     fetch(`http://localhost:3001/photos/${id}`, {method:'DELETE'})
     .then(() => {setPhotos(photos.filter((photo) => photo.id !== id))})
